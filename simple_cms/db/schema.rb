@@ -10,15 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160815193018) do
+ActiveRecord::Schema.define(version: 20160816034612) do
+
+  create_table "admin_users_pages", id: false, force: :cascade do |t|
+    t.integer "admin_user_id"
+    t.integer "page_id"
+    t.index ["admin_user_id", "page_id"], name: "index_admin_users_pages_on_admin_user_id_and_page_id"
+  end
 
   create_table "pages", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string   "name"
-    t.string   "permalink"
-    t.integer  "position"
-    t.boolean  "visible"
     t.integer  "subject_id"
   end
 
