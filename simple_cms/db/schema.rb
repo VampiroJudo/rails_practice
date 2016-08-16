@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160816034612) do
+ActiveRecord::Schema.define(version: 20160816200602) do
 
   create_table "admin_users_pages", id: false, force: :cascade do |t|
     t.integer "admin_user_id"
@@ -22,6 +22,17 @@ ActiveRecord::Schema.define(version: 20160816034612) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "subject_id"
+  end
+
+  create_table "section_edits", force: :cascade do |t|
+    t.integer  "admin_user_id"
+    t.integer  "section_id"
+    t.string   "summary"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.index ["admin_user_id", "section_id"], name: "index_section_edits_on_admin_user_id_and_section_id"
+    t.index ["admin_user_id"], name: "index_section_edits_on_admin_user_id"
+    t.index ["section_id"], name: "index_section_edits_on_section_id"
   end
 
   create_table "sections", force: :cascade do |t|
