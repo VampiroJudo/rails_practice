@@ -31,7 +31,7 @@ class SubjectsController < ApplicationController
   def update
     @subject = Subject.find(subject_params)
     if @subject.update_attributes(subject_params)
-        redirect_to(:action => 'show', :id => subject.id)
+        redirect_to(:action => 'show', :id => subjec)
     else
       render('edit')
     end
