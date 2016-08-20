@@ -1,3 +1,4 @@
+
 class SubjectsController < ApplicationController
   
 
@@ -38,6 +39,7 @@ class SubjectsController < ApplicationController
   end
 
   def delete
+    @subject = Subject.find(params[:id])
   end
 
   private
