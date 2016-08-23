@@ -16,28 +16,13 @@ class PagesControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test "should get create" do
-    get pages_create_url
-    assert_response :success
-  end
-
   test "should get edit" do
     get pages_edit_url
     assert_response :success
   end
 
-  test "should get update" do
-    get pages_update_url
-    assert_response :success
-  end
-
   test "should get delete" do
     get pages_delete_url
-    assert_response :success
-  end
-
-  test "should get destroy" do
-    get pages_destroy_url
     assert_response :success
   end
 
