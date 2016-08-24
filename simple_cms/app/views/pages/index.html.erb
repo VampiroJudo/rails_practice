@@ -1,2 +1,49 @@
-<h1>Pages#index</h1>
-<p>Find me in app/views/pages/index.html.erb</p>
+<% if !flash[:notice].blank? %>
+	<div class="notice">
+	 <%= flash[:notice] %>
+	</div>
+<% end %>
+
+<div class="pages index">
+	<h2>Pages</h2>
+
+	<%= link_to("Add New Page", {:action => 'new'}, :class => 'action new') %>
+
+	<table class="listing" summary="Page list">
+		<tr class="header">
+			<th>&nbsp;</th>
+			<th>Subject ID</th>
+			<th>Page</th>
+			<th>Permalink</th>
+			<th>Visible</th>
+			<th>Sections</th>
+			<th>Action</th>
+		</tr>
+		<% @pages.each do |page| %>
+		<tr>
+			<td><%= page.position %></td>
+			<td><%= page.subject_id %></td>
+			<td><%= page.name %></td>
+			<td><%= page.permalink %></td>
+			<td class="center"><%= subject.visible ? 'Yes' : 'No' %></td>
+			<td class="center"><%= subject.pages.size %></td>
+			<td class="actions">
+				<%= link_to("Show", {:action => 'show', :id => subject.id}, :class => 'action show') %>
+				<%= link_to("Edit", {:action => 'edit', :id => subject.id}, :class => 'action edit') %>
+				<%= link_to("Delete", {:action => 'delete', :id => subject.id}, :class => 'action delete') %>
+				</td>
+				</tr>
+			<% end %>
+		</table>
+	</div>	
+
+
+
+
+
+
+
+
+
+
+		
