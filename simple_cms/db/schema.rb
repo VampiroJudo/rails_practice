@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160816200602) do
+ActiveRecord::Schema.define(version: 20160824222445) do
 
   create_table "admin_users_pages", id: false, force: :cascade do |t|
     t.integer "admin_user_id"
@@ -22,6 +22,10 @@ ActiveRecord::Schema.define(version: 20160816200602) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "subject_id"
+    t.string   "name"
+    t.string   "permalink"
+    t.integer  "position"
+    t.boolean  "visible"
   end
 
   create_table "section_edits", force: :cascade do |t|
